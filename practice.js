@@ -11,10 +11,12 @@ var outer = function(){
 
   //Code Here
 
+  var inner = outer();
+
 //Once you do that, invoke inner.
 
   //Code Here
-
+inner();
 
 
 //Next problem
@@ -34,7 +36,7 @@ var callFriend = function(){
 
   //Code Here
 
-
+callFriend("Jake", "435-215-9248");
 
 //Next Problem
 
@@ -45,6 +47,14 @@ var callFriend = function(){
 */
 
   //Code Here
+
+var makeCounter = function() {
+  var www = 1
+  return function() {
+    return www++
+}
+}
+
   var count = makeCounter();
   count() // 1
   count() // 2
@@ -63,7 +73,48 @@ var callFriend = function(){
   Once completed, add a second arguments that allows the function to be invoked N number of times.
   After the function has been called N number of times, console.log('STAHHP');
 */
+var start = function(onlyOne) {
 
 
+    var thirdOne = function () {
+
+        if (counter === 0) {
+            var counter = 0;
+            counter++;
+            return onlyOne();
+        } else {
+            return false;
+        }
+    };
+    return thirdOne();
 
 
+};
+var pass = function () {
+
+    alert("this is sooooooooooooo hard");
+
+};
+
+start(pass);
+
+
+var start = function(fn, n) {
+   var counter = 0;
+   return function () {
+        if (counter < n) {
+            fn();
+            counter++;            
+        }
+        else {
+          console.log("stahhhp");
+}
+       
+    };
+};
+var pass = function () {
+    console.log("run Once");
+};
+
+var run = start(pass, 3)
+run();
